@@ -30,7 +30,7 @@ def max_profit(prices: List[int]) -> tuple:
     return (max_profit, buy_index, sell_index) if max_profit > 0 else (0, None, None)
 
 
-def max_profit_muliple_transactions(prices: List[int]):
+def max_profit_multiple_transactions(prices: List[int]):
     if __debug__:
         print(prices)
 
@@ -40,7 +40,7 @@ def max_profit_muliple_transactions(prices: List[int]):
 
     for i in range(len(prices) - 1):
         if prices[i] < high:
-            profit = max_profit_muliple_transactions(prices[i:])
+            profit = max_profit_multiple_transactions(prices[i:])
             break
         
         else:
