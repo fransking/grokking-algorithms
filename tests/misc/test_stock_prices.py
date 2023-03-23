@@ -1,5 +1,6 @@
 from grokking_algorithms.misc import max_profit
 from grokking_algorithms.misc import max_profit_multiple_transactions
+from grokking_algorithms.misc import max_profit_n_transactions
 
 
 def test_max_profit_empty_list():
@@ -37,3 +38,13 @@ def test_max_profit_multiple_transactions():
 
     result = max_profit_multiple_transactions(prices)
     assert result == 7  # buy day 2 sell day 3 for profit of 4, then buy day 4 and sell day 5 for profit of 3 == 7
+
+
+def test_max_profit_two_buy_sells():
+    prices = [7, 1, 5, 3, 6, 4, 1, 8]
+
+    # partition on each drop, recurse each right sublist of the partition
+    # [7, 1, 5, 3, 6, 4, 1, 8] -> [(7), (1, 5), (3, 6, 4), (1, 8)] -> [0, 4, 3, 7] 
+
+    result = max_profit_n_transactions(prices, num_buy_sells=2)
+    assert result == 11  # buy day 2 sell day 3 for profit of 4, then buy day 7 and sell day 8 for profit of 7 == 11
