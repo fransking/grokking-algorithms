@@ -1,7 +1,6 @@
 from grokking_algorithms.collections import Heap
 
 from typing import List
-from math import floor
 
 
 def max_profit(prices: List[int]) -> tuple:
@@ -87,7 +86,7 @@ def max_profit_n_transactions(prices: List[int], num_buy_sells=1):
 
     _max_profit(prices)
 
-    # extend n_largest_profits to required numver of buys and sell
+    # extend n_largest_profits to required number of buys and sell
     remainder = num_buy_sells - len(n_largest_profits)
     n_largest_profits.extend(profits.take(remainder))
 
